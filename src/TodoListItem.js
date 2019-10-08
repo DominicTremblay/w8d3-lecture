@@ -2,9 +2,9 @@ import React from 'react'
 
 import './TodoListItem.scss'
 
-const TodoListItem = (({task, completed}) => {
+const TodoListItem = (({id, task, completed, deleteTodo}) => {
   return (
-    <li className="list-group-item new-todo"><input type="checkbox" value={task} completed={completed ? completed : undefined}/> <label>{task}</label> <button className='remove-todo'>X</button></li>
+    <li className="list-group-item new-todo"><input type="checkbox" value={task} completed={completed ? completed : undefined}/> <label>{task}</label> <button className='remove-todo' onClick={event => deleteTodo(id)}>X</button></li>
   )
 })
 
