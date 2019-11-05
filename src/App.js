@@ -1,10 +1,21 @@
-import React from 'react';
-import './App.css';
+import React, {useState} from 'react';
+import './App.scss';
+import TodoForm from './TodoForm'
+import TodoList from './TodoList';
 
-function App() {
+const App = () => {
+
+  const [todos, setTodos] = useState([{
+    id: 1,
+    task: 'Walk the Dog',
+    completed: false
+  }]);
+
   return (
-    <div className="App">
+    <div className="App container">
       <h1>Simple todo</h1>
+      <TodoList todos={todos} />
+      <TodoForm />
     </div>
   );
 }
