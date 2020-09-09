@@ -1,68 +1,74 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# End-to-End Testing with Cypress
 
-## Available Scripts
+## Topics
 
-In the project directory, you can run:
+- Identify the difference between Jest and Cypress
+- Install and configure Cypress
+- Write End-to-End tests with Cypress
 
-### `npm start`
+- Goal of testing
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Test from start to finish how a user wil use the app
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- JEST
 
-### `npm test`
+  - unit testing > pretty quick
+  - cannot test what Cypress is testing
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Cypress
 
-### `npm run build`
+  - Slower to do
+  - cannot performed by other kind of tests
+  - Test the UI
+  - more expansive
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Difference Between Jest and Cypress
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [JEST vs Cypress](https://docs.cypress.io/faq/questions/general-questions-faq.html#So-what-benefits-would-one-get-for-converting-one%E2%80%99s-unit-tests-from-Karma-or-Jest-to-Cypress)
 
-### `npm run eject`
+## Installing Cypress
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`npm install -g cypress`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+to install locally
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+`npm install cypress --save-dev`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Add the script to `package.json`
 
-## Learn More
+`"cypress": "cypress open -P ."`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Add `cypress.json` to the project with the following content:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```json
+{
+  "baseUrl": "http://localhost:3000",
+  "viewportWidth": 1280,
+  "viewportHeight": 1200
+}
+```
 
-### Code Splitting
+- Delete the exercise files in the `cypress/integration/` folder
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Create Tests
 
-### Analyzing the Bundle Size
+### Test template
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```js
+describe('Some Functionality', () => {
 
-### Making a Progressive Web App
+  it "should test something", () => {
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+  }
 
-### Advanced Configuration
+  it "should test something", () => {
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+  }
 
-### Deployment
+})
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+### Tests
 
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Check the `cypress/integration` to find the tests we did
