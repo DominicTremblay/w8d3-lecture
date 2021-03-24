@@ -4,3 +4,7 @@
     background-color: cornflowerblue;
   }
 }
+
+.list-group-item > input[type=checkbox]:checked + label {
+  text-decoration: line-through solid red;
+}
